@@ -18,3 +18,11 @@ app.config(["$mdThemingProvider", function ($mdThemingProvider) {
         .primaryPalette('indigo')
         .accentPalette('orange');
 }]);
+
+app.config(["$routeProvider", function ($routeProvider) {
+    $routeProvider
+        .when("/", {
+            templateUrl : "./sites/default/default.html"
+        })
+        .otherwise("/");
+}]);
