@@ -13,17 +13,18 @@ app.config(["$mdGestureProvider", function ($mdGestureProvider) {
     $mdGestureProvider.skipClickHijack();
 }]);
 
-// Set theme for app
+// Sets the theme for the app
 app.config(["$mdThemingProvider", function ($mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('indigo')
         .accentPalette('deep-orange');
 }]);
 
+// Sets the different routes for the app
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl : "./sites/default/default.html"
+            template : "<default></default>"
         })
         .otherwise("/");
 }]);
