@@ -6,10 +6,10 @@ Core template for applications with AngularJS and Material Angular
 ### Core
 * safeApply function
 * dynamic titles - TitleController/TitleService
-* style fixes for devider and error messages on inputs
+* style fixes for divider and error messages on inputs
 * material design icons
 * fix for not working inputs on mobile devices
-* custom theme preperation
+* custom theme preparation
 
 ### Routing
 * configuration for routes
