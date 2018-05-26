@@ -1,16 +1,14 @@
 app.service("titleService", [function () {
 
-    var service = this;
+    var serv = this;
 
-    service.title = {
-        "value": "Title"
+    var title = "";
+
+    serv.setTitle = function (newTitle) {
+        title = newTitle;
     };
 
-    service.setTitle = function (title) {
-        service.title.value = title;
-    };
-
-    service.getTitle = function () {
-        return service.title.value;
+    serv.getTitle = function () {
+        return title;
     }
 }]);
