@@ -28,8 +28,8 @@
     "angular-material": "^1.1.9",
     "angular-material-data-table": "^0.10.10",
     "angular-messages": "^1.6.10",
+    "angular-route": "^1.6.10",
     "angular-toarrayfilter": "^1.0.3",
     "moment": "^2.22.1"
-    "angular-route": "^1.6.10"
   }
 }
