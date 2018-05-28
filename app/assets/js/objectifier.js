@@ -19,7 +19,7 @@ var Objectifier = (function() {
             return objectifier(path.split('.'), create, object);
         },
         exists: function(object, path) {
-            return this.get(path, false, object) !== undefined;
+            return this.get(object, path, false) !== undefined;
         }
     };
 
