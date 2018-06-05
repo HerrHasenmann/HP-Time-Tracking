@@ -15,14 +15,7 @@
 </head>
 <body ng-cloak>
 
-<!-- TODO add replace samples with your application -->
-<div layout="column" style="max-width: 620px; min-width: 620px">
-    <color-sample></color-sample>
-
-    <moment-sample></moment-sample>
-</div>
-
-<!-- TODO add application + routes in app-config.js -->
+<!-- TODO add application + routes in RouteProvider.js -->
 <div ng-view></div>
 
 <!-- AngularJS -->
@@ -42,6 +35,9 @@
 <!-- Javascript of application-->
 <script src="./app.module.min.js"></script>
 <script src="./app.config.min.js"></script>
+
+<!-- Providers -->
+<script src="./shared/routing/RouteProvider.min.js"></script>
 
 <!-- Controller -->
 <script src="./shared/root/RootController.min.js"></script>

@@ -1,11 +1,15 @@
 app.component("momentSample", {
     templateUrl: "./components/moment-sample/momentSampleTemplate.html",
-    controller: [MomentSampleController]
+    controller: ["RouteService", MomentSampleController]
 });
 
-function MomentSampleController() {
+function MomentSampleController(RouteService) {
 
     var ctrl = this;
+
+    ctrl.gotoHome = function () {
+        RouteService.setRoute("/")
+    };
 
     ctrl.samples = [
         moment().format('MMMM Do YYYY, h:mm:ss a'),
@@ -45,5 +49,5 @@ function MomentSampleController() {
         "moment().format('lll')",
         "moment().format('LLLL')",
         "moment().format('llll')"
-    ]
+    ];
 }

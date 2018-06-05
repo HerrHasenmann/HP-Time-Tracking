@@ -27,10 +27,36 @@ app.config(["$mdThemingProvider", function ($mdThemingProvider) {
 }]);
 
 // Sets the different routes for the app
-app.config(["$routeProvider", function ($routeProvider) {
+app.config(["$routeProvider", "$injector", "RouteServiceProvider", function ($routeProvider, $injector, RouteServiceProvider) {
+
+    var RouteService = RouteServiceProvider.$get[1]();
+
+    var defaultRoute = RouteService.getDefaultRoute();
+    var routes = RouteService.getRoutes();
+    var redirects = RouteService.getRedirects();
+
+    // Set default route
     $routeProvider
         .when("/", {
-            template : "<default></default>"
+            template: defaultRoute.template
+        });
+
+    // Set routes
+    angular.forEach(routes, function (route, routeId) {
+        $routeProvider.when("/" + routeId, {
+            template: route.template
         })
-        .otherwise("/");
+    });
+
+    // Set redirects
+    angular.forEach(redirects, function (redirect, index) {
+        $routeProvider.when("/" + redirect["when"], {
+            redirectTo: "/" + redirect.route.id
+        })
+    });
+
+    // Set otherwise
+    $routeProvider.otherwise("/");
+
 }]);
+
