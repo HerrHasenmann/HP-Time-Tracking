@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+
+<div>
+
+    <div layout="column">
+
+        <div layout="row" layout-align="center center">
+
+            <div flex-xs="75" flex-sm="33" flex-md="25" flex="25" style="border-radius: 20px">
+
+                <md-input-container style="width: 100%" class="md-no-error">
+                    <label md-colors="{color: 'accent'}">Search for an icon</label>
+                    <input
+                            ng-model="$ctrl.searchQuery"
+                            ng-change="$ctrl.filterIcons()"
+                            ng-model-options="{updateOn: 'default blur', debounce: { 'default': 100, 'blur': 0 }}"
+                            type="text">
+                </md-input-container>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div layout="row" layout-align="start" layout-wrap layout-padding>
+        <md-icon ng-repeat="icon in $ctrl.icons" ng-click="$ctrl.copyToClipboard(icon.name)" md-svg-icon="{{icon.name}}" style="height: 48px; width: 48px; margin: initial">
+            <md-tooltip md-direction="top" md-delay="0">{{icon.name}}</md-tooltip>
+        </md-icon>
+    </div>
+
+</div>

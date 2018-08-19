@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <md-sidenav
         flex
+        layout="column"
         class="md-sidenav-left"
         md-component-id="left"
         md-is-locked-open="$mdMedia('gt-sm')"
@@ -20,11 +21,18 @@
     </md-toolbar>
     <md-content flex>
 
-        <div layout="row" layout-margin>
-            <span>
-                This is the sidenav. Configured to stay open for devices with a screen size greater "sm".
-            </span>
-        </div>
+        <md-list>
+            <md-list-item ng-repeat="route in $ctrl.routes()" ng-click="$ctrl.changeRoute(route)" layout="row" layout-align="start center" md-colors="{{$ctrl.getColorsForActive(route)}}">
+                <md-icon md-svg-icon="{{route.icon}}"></md-icon>
+                {{route.name}}
+            </md-list-item>
+        </md-list>
+
+    </md-content>
+
+    <md-content layout="row">
+
+        <!-- add additional buttons taht stick at the bottom -->
 
     </md-content>
 </md-sidenav>

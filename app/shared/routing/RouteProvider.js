@@ -1,7 +1,7 @@
 app.provider("RouteService", [function () {
     this.$get = ["$location", function ($location) {
-            return new RouteService($location);
-        }];
+        return new RouteService($location);
+    }];
 
 }]);
 
@@ -10,24 +10,30 @@ function RouteService($location) {
     var serv = this;
 
     var routes = {
-        "default": {
-            "id": "default",
-            "name": "Default",
-            "template": "<default></default>"
+        "sidenav": {
+            "colorSample": {
+                "id": "colorSample",
+                "name": "Color Sample",
+                "icon": "palette",
+                "template": "<color-sample></color-sample>"
+            },
+            "momentSample": {
+                "id": "momentSample",
+                "name": "Moment Sample",
+                "icon": "calendar-clock",
+                "template": "<moment-sample></moment-sample>"
+            },
+            "iconSample": {
+                "id": "iconSample",
+                "name": "Icon Sample",
+                "icon": "apps",
+                "template": "<icon-sample></icon-sample>"
+            }
         },
-        "colorSample": {
-            "id": "colorSample",
-            "name": "Color Sample",
-            "template": "<color-sample></color-sample>"
-        },
-        "momentSample": {
-            "id": "momentSample",
-            "name": "Moment Sample",
-            "template": "<moment-sample></moment-sample>"
-        }
+        "others": {}
     };
 
-    var defaultRoute = routes["default"];
+    var defaultRoute = routes.sidenav["colorSample"];
 
     var redirects = [
         // Sample
@@ -41,6 +47,10 @@ function RouteService($location) {
         return routes
     };
 
+    serv.getSidenavRoutes = function () {
+        return routes.sidenav;
+    };
+
     serv.getDefaultRoute = function () {
         return defaultRoute
     };
@@ -52,10 +62,14 @@ function RouteService($location) {
     serv.getRoute = function () {
         var path = $location.path();
 
-        if(path === "/"){
+        if (path === "/") {
             return defaultRoute;
         } else {
-            return routes[path.slice(1)];
+            if (routes.sidenav[path.slice(1)]) {
+                return routes.sidenav[path.slice(1)];
+            } else if (routes.others[path.slice(1)]) {
+                return routes.others[path.slice(1)]
+            }
         }
     };
 
@@ -67,8 +81,8 @@ function RouteService($location) {
 
             $location.url(route);
         } else if (typeof route === "object") {
-            if(route.hasOwnProperty("id")){
-                $location.url("/"+route.id);
+            if (route.hasOwnProperty("id")) {
+                $location.url("/" + route.id);
             }
         } else {
             console.error("Given parameter for RouteService.goto() was nether string nor object");

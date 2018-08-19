@@ -26,11 +26,11 @@ app.config(["$mdThemingProvider", function ($mdThemingProvider) {
         .backgroundPalette('grey');
 
     $mdThemingProvider.theme('default-dark')
-        .primaryPalette('indigo', {
-            "default": "700"
-        })
-        .accentPalette('blue-grey', {
+        .primaryPalette('blue-grey', {
             "default": "500"
+        })
+        .accentPalette('orange', {
+            "default": "300"
         })
         .warnPalette('deep-orange')
         .backgroundPalette('grey')
@@ -38,23 +38,33 @@ app.config(["$mdThemingProvider", function ($mdThemingProvider) {
 
     $mdThemingProvider.setDefaultTheme('default-dark');
 
+}]);
+
 // Sets the different routes for the app
 app.config(["$routeProvider", "$injector", "RouteServiceProvider", function ($routeProvider, $injector, RouteServiceProvider) {
 
     var RouteService = RouteServiceProvider.$get[1]();
 
     var defaultRoute = RouteService.getDefaultRoute();
-    var routes = RouteService.getRoutes();
+    var sidenavRoutes = RouteService.getRoutes().sidenav;
+    var otherRoutes = RouteService.getRoutes().sidenav;
     var redirects = RouteService.getRedirects();
 
     // Set default route
     $routeProvider
         .when("/", {
-            template: defaultRoute.template
+            redirectTo: "/"+defaultRoute.id
         });
 
-    // Set routes
-    angular.forEach(routes, function (route, routeId) {
+    // Set sidenavRoutes
+    angular.forEach(sidenavRoutes, function (route, routeId) {
+        $routeProvider.when("/" + routeId, {
+            template: route.template
+        })
+    });
+
+    // Set otherRoutes
+    angular.forEach(otherRoutes, function (route, routeId) {
         $routeProvider.when("/" + routeId, {
             template: route.template
         })
