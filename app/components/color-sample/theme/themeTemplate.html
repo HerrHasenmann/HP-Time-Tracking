@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<div flex layout="column" layout-padding md-whiteframe="1" md-colors="{{'{background: \''+$ctrl.theme.colors.background.name+'-'+$ctrl.theme.colors.background.hues['hue-2']+'\'}'}}">
+
+    <span class="md-title" style="margin-right: 16px">{{$ctrl.theme.name}}</span>
+
+    <div flex layout="column" layout-margin layout-padding>
+
+        <div flex="25" ng-repeat="(type, color) in $ctrl.theme.colors" md-whiteframe="1" md-colors="{{'{background: \''+color.name+'-'+color.hues.default+'\'}'}}" style="border-radius: 5px">
+            <span class="md-subhead">{{type +": "+color.name+"-"+color.hues.default}}</span>
+            <div layout="row" layout-align="space-around center" ng-if="$ctrl.showHue" style="margin-top: 20px">
+
+                <div layout="row" layout-align="center center" ng-repeat="(hueName, hue) in color.hues" ng-if="hueName !== 'default'" md-colors="{{'{background: \''+color.name+'-'+hue+'\'}'}}" style="border-radius: 10px; padding: 8px; margin: 2px">
+                    <span class="md-caption">{{hueName + " ("+ hue +")"}}</span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

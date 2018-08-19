@@ -1,78 +1,26 @@
 <!DOCTYPE html>
-<md-card layout="column">
+<div layout="column" layout-padding>
 
-    <div layout="row" layout-align="space-around center">
-        <md-button class="md-raised md-primary">
-            Primary
-        </md-button>
-        <md-button class="md-raised md-accent">
-            Accent
-        </md-button>
-        <md-button class="md-raised md-warn">
-            Warn
-        </md-button>
-        <md-button class="md-raised">
-            No Color
-        </md-button>
+    <div layout="row" layout-align="space-between center">
+
+        <span class="md-headline">Installed Themes</span>
+
+        <md-switch ng-model="$ctrl.showHue" md-invert style="margin-top: 0; margin-bottom: 0">Show Hue</md-switch>
+
     </div>
 
-    <div layout="row" layout-align="space-around center">
-        <md-button class="md-raised md-primary">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button class="md-raised md-accent">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button class="md-raised md-warn">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button class="md-raised">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-    </div>
+    <div layout="row" layout-align="center stretch" layout-xs="column" layout-padding>
 
-    <div layout="row" layout-align="space-around center">
-        <md-button class="md-icon-button md-raised md-primary">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button class="md-icon-button md-raised md-accent">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button class="md-icon-button md-raised md-warn">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button class="md-icon-button md-raised">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-    </div>
+        <theme
+                flex-xs="100"
+                flex-sm="50"
+                flex-md="50"
+                flex-lg="33"
+                flex-xl="25"
+                layout="column"
+                ng-repeat="theme in $ctrl.themes"
+                theme="theme"
+                show-hue="$ctrl.showHue"></theme>
 
-    <div layout="row" layout-align="space-around center">
-        <md-button class="md-primary">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button class="md-accent">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button class="md-warn">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button>
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
     </div>
-
-    <div layout="row" layout-align="space-around center">
-        <md-button class="md-icon-button md-primary">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button class="md-icon-button md-accent">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button class="md-icon-button md-warn">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-        <md-button class="md-icon-button">
-            <md-icon md-svg-icon="rabbit"></md-icon>
-        </md-button>
-    </div>
-</md-card>
+</div>

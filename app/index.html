@@ -13,10 +13,19 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="./assets/css/styles.min.css">
 </head>
-<body ng-cloak>
+<body ng-cloak layout="row">
 
-<!-- TODO add application + routes in RouteProvider.js -->
-<div ng-view></div>
+<sidenav layout="column"></sidenav>
+
+<div flex layout="column">
+
+    <toolbar></toolbar>
+
+    <md-content flex>
+        <color-sample></color-sample>
+    </md-content>
+
+</div>
 
 <!-- AngularJS -->
 <script src="./node_modules/angular/angular.min.js"></script>
@@ -50,7 +59,11 @@
 <script src="./node_modules/angular-toarrayfilter/toArrayFilter.js"></script>
 
 <!-- Components -->
+<script src="./components/toolbar/toolbarComponent.min.js"></script>
+<script src="./components/sidenav/sidenavComponent.min.js"></script>
+
 <script src="./components/color-sample/colorSampleComponent.min.js"></script>
+<script src="./components/color-sample/theme/themeComponent.min.js"></script>
 <script src="./components/moment-sample/momentSampleComponent.min.js"></script>
 <script src="./components/default/defaultComponent.js"></script>
 

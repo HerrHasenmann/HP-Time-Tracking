@@ -2,7 +2,7 @@ app.controller("TitleController", ["$scope", "titleService", function ($scope, t
 
     $scope.title = titleService.getTitle;
     function init() {
-        titleService.setTitle("App Title");
+        titleService.setTitle("Material Angular Template");
     }
     init();
 }]);
