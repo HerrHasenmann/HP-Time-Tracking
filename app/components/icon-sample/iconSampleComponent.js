@@ -1,9 +1,9 @@
 app.component("iconSample", {
     templateUrl: "./components/icon-sample/iconSampleTemplate.html",
-    controller: ["$rootScope", "$timeout", "$mdToast", "ICONS", IconSampleController]
+    controller: ["$rootScope", "$timeout", "$clipboard", "ICONS", IconSampleController]
 });
 
-function IconSampleController($rootScope, $timeout, $mdToast, ICONS) {
+function IconSampleController($rootScope, $timeout, $clipboard, ICONS) {
 
     var ctrl = this;
     var lodingPromise = null;
@@ -12,16 +12,7 @@ function IconSampleController($rootScope, $timeout, $mdToast, ICONS) {
     ctrl.icons = [];
 
     ctrl.copyToClipboard = function (name) {
-        var dummy = document.createElement("input");
-        document.body.appendChild(dummy);
-        dummy.setAttribute('value', name);
-        dummy.select();
-        document.execCommand("copy");
-        document.body.removeChild(dummy);
-
-        $mdToast.show($mdToast.simple()
-            .content("Name copied to clipboard")
-            .position('bottom right'));
+        $clipboard.copy(name).showToast().build();
     };
 
     ctrl.filterIcons = function () {
