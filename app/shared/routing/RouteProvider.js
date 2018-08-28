@@ -1,4 +1,5 @@
 app.provider("RouteService", [function () {
+
     this.$get = ["$location", function ($location) {
         return new RouteService($location);
     }];
