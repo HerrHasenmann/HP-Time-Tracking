@@ -12,6 +12,12 @@ function RouteService($location) {
 
     var routes = {
         "sidenav": {
+            "timeline": {
+                "id": "timeline",
+                "name": "Timeline",
+                "icon": "timetable",
+                "template": "<timeline></timeline>"
+            },
             "colorSample": {
                 "id": "colorSample",
                 "name": "Color Sample",
