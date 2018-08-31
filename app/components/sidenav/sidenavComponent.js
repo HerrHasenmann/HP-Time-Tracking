@@ -7,6 +7,8 @@ function SidenavController($mdSidenav, RouteService) {
 
     var ctrl = this;
 
+	ctrl.routesWithoutSidenav = ["timelineSettings"];
+
     ctrl.routes = RouteService.getSidenavRoutes;
     ctrl.changeRoute = RouteService.setRoute;
 
@@ -20,4 +22,10 @@ function SidenavController($mdSidenav, RouteService) {
     ctrl.closeSidenav = function () {
         $mdSidenav("left").close();
     };
+
+	ctrl.showSidenav = function () {
+		if(ctrl.routesWithoutSidenav.indexOf(RouteService.getRoute().id) === -1){
+			return true;
+		}
+	}
 }

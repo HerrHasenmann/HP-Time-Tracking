@@ -37,7 +37,14 @@ function RouteService($location) {
                 "template": "<icon-sample></icon-sample>"
             }
         },
-        "others": {}
+        "others": {
+            "timelineSettings": {
+	            "id": "timelineSettings",
+	            "name": "Timeline Settings",
+	            "icon": "settings",
+	            "template": "<timeline-settings></timeline-settings>"
+            }
+        }
     };
 
     var defaultRoute = routes.sidenav["colorSample"];

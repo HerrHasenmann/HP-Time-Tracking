@@ -47,7 +47,7 @@ app.config(["$routeProvider", "$injector", "RouteServiceProvider", function ($ro
 
     var defaultRoute = RouteService.getDefaultRoute();
     var sidenavRoutes = RouteService.getRoutes().sidenav;
-    var otherRoutes = RouteService.getRoutes().sidenav;
+    var otherRoutes = RouteService.getRoutes().others;
     var redirects = RouteService.getRedirects();
 
     // Set default route
@@ -71,7 +71,7 @@ app.config(["$routeProvider", "$injector", "RouteServiceProvider", function ($ro
     });
 
     // Set redirects
-    angular.forEach(redirects, function (redirect, index) {
+    angular.forEach(redirects, function (redirect) {
         $routeProvider.when("/" + redirect["when"], {
             redirectTo: "/" + redirect.route.id
         })

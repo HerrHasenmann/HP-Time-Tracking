@@ -3,19 +3,14 @@ app.component("toolbar", {
     controller: ["RouteService", "$mdSidenav", ToolbarController]
 });
 
-function ToolbarController(RouteService, $mdSidenav) {
+function ToolbarController(RouteService) {
 
     var ctrl = this;
-    ctrl.routesWithOwnToolbar = ["timeline"];
+    ctrl.routesWithOwnToolbar = ["timeline", "timelineSettings"];
 
     ctrl.route = RouteService.getRoute;
 
-    ctrl.openSidenav = function () {
-        $mdSidenav("left").open();
-    };
-
     ctrl.useStandardToolbar = function () {
-
         if(ctrl.routesWithOwnToolbar.indexOf(ctrl.route().id) === -1){
             return true;
         }

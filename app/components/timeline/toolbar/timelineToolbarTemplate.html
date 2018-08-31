@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<md-toolbar>
+    <div class="md-toolbar-tools">
+
+        <sidenav-menu-button></sidenav-menu-button>
+
+        <span hide-xs style="margin-right: 32px;">Timeline</span>
+
+        <md-button ng-click="$ctrl.gotoToday()" class="md-raised md-primary md-hue-2" ng-class="{'md-icon-button':!$root.$mdMedia('gt-xs')}">
+            <md-icon hide show-xs md-svg-icon="calendar"></md-icon>
+            <span hide-xs>Today</span>
+            <md-tooltip hide show-xs>Today</md-tooltip>
+        </md-button>
+
+        <span flex></span>
+
+        <md-menu>
+            <md-button ng-click="$mdMenu.open($event)" class="md-icon-button">
+                <md-icon md-svg-icon="calendar-search"></md-icon>
+                <md-tooltip>Goto</md-tooltip>
+            </md-button>
+            <md-menu-content style="padding: 0; max-height: unset">
+                <div layout="row">
+                    <md-calendar ng-model="$ctrl.selectedGotoDate" md-min-date="$ctrl.minDate" md-max-date="$ctrl.maxDate" ng-change="$mdMenu.close(); $ctrl.gotoDate($ctrl.selectedGotoDate)"></md-calendar>
+                </div>
+            </md-menu-content>
+        </md-menu>
+
+        <!-- TODO Maybe open a new page for searching with many filters, options -->
+        <md-button class="md-icon-button">
+            <md-icon md-svg-icon="magnify"></md-icon>
+            <md-tooltip>Search</md-tooltip>
+        </md-button>
+
+        <!-- TODO open settings page -->
+        <md-button ng-click="$ctrl.openSettings()" class="md-icon-button">
+            <md-icon md-svg-icon="settings"></md-icon>
+            <md-tooltip>Settings</md-tooltip>
+        </md-button>
+    </div>
+</md-toolbar>

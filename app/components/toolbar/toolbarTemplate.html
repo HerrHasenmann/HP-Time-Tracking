@@ -2,9 +2,7 @@
 <md-toolbar ng-if="$ctrl.useStandardToolbar()">
     <div class="md-toolbar-tools">
 
-        <md-button hide show-xs show-sm class="md-icon-button" ng-click="$ctrl.openSidenav()">
-            <md-icon md-svg-icon="menu"></md-icon>
-        </md-button>
+        <sidenav-menu-button></sidenav-menu-button>
 
         <span>{{$ctrl.route().name}}</span>
 
