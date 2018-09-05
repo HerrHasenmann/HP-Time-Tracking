@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<md-content md-whiteframe="1">
+<md-content md-colors="{background: 'background-hue-1'}">
 
-	<md-toolbar>
-		<div class="md-toolbar-tools">
-			Mo. 20.08
+	<div layout="row" layout-align="start center" layout-padding md-colors="{background: 'accent'}" md-whiteframe="1">
+		<div flex="33" layout="row" layout-align="start center">
+			Sum: 8h
 		</div>
-	</md-toolbar>
+		<div flex="33" layout="row" layout-align="center center">
+			Montag 20.08
+		</div>
+		<div flex="33" layout="row" layout-align="end center">
+			<md-icon md-svg-icon="check-all" md-colors="{fill: 'light-green-200'}" style="margin: 0;"></md-icon>
+		</div>
+	</div>
+
+	<div layout="column">
+		<time-tracking ng-repeat="timeRange in [1, 2, 3, 4, 5, 6, 7]"></time-tracking>
+	</div>
 
 </md-content>

@@ -29,8 +29,8 @@ app.config(["$mdThemingProvider", function ($mdThemingProvider) {
         .primaryPalette('blue-grey', {
             "default": "500"
         })
-        .accentPalette('orange', {
-            "default": "300"
+        .accentPalette('blue', {
+            "default": "500"
         })
         .warnPalette('deep-orange')
         .backgroundPalette('grey')
