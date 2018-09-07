@@ -36,7 +36,7 @@ app.config(["$mdThemingProvider", function ($mdThemingProvider) {
         .backgroundPalette('grey')
         .dark();
 
-    $mdThemingProvider.setDefaultTheme('default-dark');
+    // $mdThemingProvider.setDefaultTheme('default-dark');
 
 }]);
 

@@ -25,7 +25,7 @@
 
     <div layout="row" layout-align="start" layout-wrap layout-padding>
         <md-icon ng-repeat="icon in $ctrl.icons" ng-click="$ctrl.copyToClipboard(icon.name)" md-svg-icon="{{icon.name}}" style="height: 48px; width: 48px; margin: initial">
-            <md-tooltip md-direction="top" md-delay="0">{{icon.name}}</md-tooltip>
+            <md-tooltip md-direction="top" md-delay="0">{{::icon.name}}</md-tooltip>
         </md-icon>
     </div>
 
